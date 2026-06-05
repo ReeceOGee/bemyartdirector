@@ -471,9 +471,9 @@ function closeDetail() { document.getElementById("profile-detail").classList.rem
 function showEnd() {
   let c;
   if (likeCount === 0) {
-    c = { emoji:"🧠", title:"Not Compatible.", sub:"You must be a strategist.", tag:"Respect. But also... are you sure?", showAll:false };
+    c = { emoji:"🧠", title:"Dang, not a single right swipe.", sub:"You must be a strategist.", tag:"Wanna go again?", showAll:false };
   } else if (likeCount <= 2) {
-    c = { emoji:"🤔", title:"Could be something...", sub:"There might be something in this.", tag:"You're intrigued. Reece is intrigued. Let's find out.", showAll:true };
+    c = { emoji:"🤔", title:"There's a spark!", sub:"You swiped right on few Reece's.", tag:"", showAll:true };
   } else {
     c = { emoji:"💘", title:"It's a Match!", sub:"You and Reece are compatible.", tag:"Drop him your best creative pick-up line.", showAll:true };
   }
