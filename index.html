@@ -6,22 +6,14 @@
 <title>Be My Art Director</title>
 <style>
   :root {
-    --pink: 
-#fd297b;
-    --orange: 
-#ff655b;
-    --yellow: 
-#ffad08;
-    --gradient: linear-gradient(135deg, 
-#fd297b 0%, 
-#ff655b 50%, 
-#ffad08 100%);
+    --pink: #fd297b;
+    --orange: #ff655b;
+    --yellow: #ffad08;
+    --gradient: linear-gradient(135deg, #fd297b 0%, #ff655b 50%, #ffad08 100%);
     --card-radius: 20px;
-    --dark: 
-#1a1a1a;
+    --dark: #1a1a1a;
     --grey: #888;
-    --light-grey: 
-#f5f5f5;
+    --light-grey: #f5f5f5;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -98,7 +90,7 @@
   #deck {
     position: relative;
     width: min(92vw, 400px);
-    height: min(136vw, 680px);
+    height: min(136vw, 580px);
     flex-shrink: 0;
   }
   .profile-card {
@@ -119,9 +111,7 @@
   .card-role { font-size:12px; color:var(--grey); margin-bottom:10px; }
   .card-copy { font-size:14px; line-height:1.6; color:#333; }
   .stamp { position:absolute; top:20px; font-size:24px; font-weight:800; border:4px solid; border-radius:8px; padding:5px 14px; letter-spacing:2px; text-transform:uppercase; opacity:0; pointer-events:none; transition:opacity 0.1s; }
-  .stamp-like { left:16px; color:
-#21d07a; border-color:
-#21d07a; transform:rotate(-15deg); }
+  .stamp-like { left:16px; color:#21d07a; border-color:#21d07a; transform:rotate(-15deg); }
   .stamp-nope { right:16px; color:#f55; border-color:#f55; transform:rotate(15deg); }
   .card-expand-hint { position:absolute; top:14px; right:14px; width:32px; height:32px; border-radius:50%; background:rgba(0,0,0,0.32); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; font-size:15px; color:white; cursor:pointer; border:none; z-index:5; }
 
@@ -143,9 +133,7 @@
   .detail-name { font-size:28px; font-weight:700; color:var(--dark); }
   .detail-age { font-size:22px; color:var(--dark); }
   .detail-meta { color:var(--grey); font-size:14px; margin-bottom:14px; }
-  .detail-vibe-pill { display:inline-flex; align-items:center; background:
-#fff0f5; color:var(--pink); font-size:13px; font-weight:600; padding:6px 14px; border-radius:999px; margin-bottom:16px; border:1px solid 
-#ffd0e4; }
+  .detail-vibe-pill { display:inline-flex; align-items:center; background:#fff0f5; color:var(--pink); font-size:13px; font-weight:600; padding:6px 14px; border-radius:999px; margin-bottom:16px; border:1px solid #ffd0e4; }
   .detail-section { margin-bottom:18px; }
   .detail-section h3 { font-size:18px; font-weight:700; color:var(--dark); margin-bottom:8px; }
   .detail-section p { font-size:15px; line-height:1.65; color:#444; }
@@ -165,8 +153,7 @@
   .end-btns { display:flex; flex-direction:column; gap:12px; width:100%; max-width:300px; }
   .end-btn { padding:16px 24px; border-radius:999px; border:none; font-family:inherit; font-size:16px; font-weight:600; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 6px 20px rgba(0,0,0,0.2); transition:transform 0.15s; }
   .end-btn:hover { transform:scale(1.03); }
-  .end-btn-li { background:white; color:
-#0a66c2; }
+  .end-btn-li { background:white; color:#0a66c2; }
   .end-btn-ig { background:white; color:var(--pink); }
   .end-btn-site { background:rgba(255,255,255,0.2); color:white; border:2px solid rgba(255,255,255,0.5); }
   .end-restart { margin-top:20px; background:none; border:none; color:rgba(255,255,255,0.6); font-size:13px; cursor:pointer; text-decoration:underline; font-family:inherit; }
@@ -215,7 +202,7 @@
       <span class="detail-age">26</span>
       <span>✅</span>
     </div>
-    <div class="detail-meta">📍 Auckland, NZ &nbsp;•&nbsp; ✏️ Copywriter — Special</div>
+    <div class="detail-meta">📍 Auckland, NZ &nbsp;•&nbsp; ✏️ Junior Copywriter — Special</div>
     <div class="detail-vibe-pill" id="detail-vibe-pill"></div>
     <div class="detail-section">
       <h3>About this Reece</h3>
@@ -288,7 +275,7 @@ function spawnFloaters() {
     container.appendChild(el);
   }
   // 16 face floaters — spread evenly across full width
-  const faceSizes = [80, 150, 200, 260, 400];
+  const faceSizes = [60, 70, 80, 90, 100];
   for (let i = 0; i < 16; i++) {
     const el = document.createElement("div");
     el.className = "floater is-face";
@@ -359,7 +346,7 @@ function createCard(i) {
   const p = PROFILES[i];
   const card = document.createElement("div");
   card.className = "profile-card";
-  card.innerHTML = 
+  card.innerHTML = `
     <img class="card-photo" src="${p.photo}" alt="${p.name}" draggable="false" />
     <div class="card-bottom">
       <div class="card-name-row">
@@ -367,13 +354,13 @@ function createCard(i) {
         <span class="card-age">26</span>
         <span>✅</span>
       </div>
-      <div class="card-role">📍 Auckland, NZ · Copywriter — Special</div>
-      <p class="card-copy">${p.copy1}
+      <div class="card-role">📍 Auckland, NZ · Junior Copywriter — Special</div>
+      <p class="card-copy">${p.copy1}<br>${p.copy2}</p>
     </div>
     <div class="stamp stamp-like">VIBE ♥</div>
     <div class="stamp stamp-nope">PASS</div>
     <button class="card-expand-hint" onclick="openDetail(${i})">ℹ</button>
-  ;
+  `;
   setupDrag(card, i);
   return card;
 }
@@ -387,7 +374,7 @@ function updateStack() {
     card.style.opacity = "1";
     card.style.zIndex = PROFILES.length - pos;
     card.style.transition = "transform 0.3s ease, opacity 0.3s";
-    card.style.transform = scale(${1 - pos * 0.04}) translateY(${pos * 10}px);
+    card.style.transform = `scale(${1 - pos * 0.04}) translateY(${pos * 10}px)`;
     card.style.pointerEvents = pos === 0 ? "auto" : "none";
   });
 }
@@ -395,7 +382,7 @@ function updateStack() {
 function updateCounter() {
   const shown = Math.min(currentIndex + 1, PROFILES.length);
   document.getElementById("counter").textContent =
-    currentIndex < PROFILES.length ? ${shown} / ${PROFILES.length} : "";
+    currentIndex < PROFILES.length ? `${shown} / ${PROFILES.length}` : "";
 }
 
 function setupDrag(card, idx) {
@@ -419,7 +406,7 @@ function dragMove(e, card, idx) {
   if (!isDragging || activeCard !== card || idx !== currentIndex) return;
   const pt = e.touches ? e.touches[0] : e;
   currentX = pt.clientX - startX;
-  card.style.transform = translate(${currentX}px, ${currentX * 0.08}px) rotate(${currentX * 0.06}deg);
+  card.style.transform = `translate(${currentX}px, ${currentX * 0.08}px) rotate(${currentX * 0.06}deg)`;
   const ratio = Math.min(Math.abs(currentX) / 80, 1);
   card.querySelector(".stamp-like").style.opacity = currentX > 0 ? ratio : 0;
   card.querySelector(".stamp-nope").style.opacity = currentX < 0 ? ratio : 0;
@@ -433,7 +420,7 @@ function dragEnd(card, idx) {
   else if (currentX < -90) flyOut(card, "left");
   else {
     const pos = idx - currentIndex;
-    card.style.transform = scale(${1 - pos * 0.04}) translateY(${pos * 10}px);
+    card.style.transform = `scale(${1 - pos * 0.04}) translateY(${pos * 10}px)`;
     card.querySelector(".stamp-like").style.opacity = 0;
     card.querySelector(".stamp-nope").style.opacity = 0;
   }
@@ -446,7 +433,7 @@ function flyOut(card, dir) {
 
   // Fly card off screen
   card.style.transition = "transform 0.35s ease, opacity 0.35s";
-  card.style.transform = translate(${dir === "right" ? 650 : -650}px, -60px) rotate(${dir === "right" ? 25 : -25}deg);
+  card.style.transform = `translate(${dir === "right" ? 650 : -650}px, -60px) rotate(${dir === "right" ? 25 : -25}deg)`;
   card.style.opacity = "0";
 
   if (dir === "right") {
@@ -484,9 +471,9 @@ function closeDetail() { document.getElementById("profile-detail").classList.rem
 function showEnd() {
   let c;
   if (likeCount === 0) {
-    c = { emoji:"🧠", title:"Dang, not a single right swipe.", sub:"You must be a strategist.", tag:"Wanna go again?", showAll:false };
+    c = { emoji:"🧠", title:"Not Compatible.", sub:"You must be a strategist.", tag:"Respect. But also... are you sure?", showAll:false };
   } else if (likeCount <= 2) {
-    c = { emoji:"🤔", title:"There's a spark!", sub:"You swiped right on few Reece's.", tag:"Why not do some more stalking", showAll:true };
+    c = { emoji:"🤔", title:"Could be something...", sub:"There might be something in this.", tag:"You're intrigued. Reece is intrigued. Let's find out.", showAll:true };
   } else {
     c = { emoji:"💘", title:"It's a Match!", sub:"You and Reece are compatible.", tag:"Drop him your best creative pick-up line.", showAll:true };
   }
@@ -494,11 +481,11 @@ function showEnd() {
   document.getElementById("end-title").textContent = c.title;
   document.getElementById("end-sub").textContent = c.sub;
   document.getElementById("end-tagline").textContent = c.tag;
-  document.getElementById("end-btns").innerHTML = c.showAll ? 
+  document.getElementById("end-btns").innerHTML = c.showAll ? `
     <a class="end-btn end-btn-li" href="https://www.linkedin.com/in/reece-ogorman/" target="_blank" rel="noopener">💼 Message on LinkedIn</a>
     <a class="end-btn end-btn-ig" href="https://www.instagram.com/reece_ogorgeous/" target="_blank" rel="noopener">📸 DM on Instagram</a>
     <a class="end-btn end-btn-site" href="https://www.reeceog.com" target="_blank" rel="noopener">🌐 See the full portfolio</a>
-   : <a class="end-btn end-btn-site" href="https://www.reeceog.com" target="_blank" rel="noopener">🌐 See the portfolio anyway</a>;
+  ` : `<a class="end-btn end-btn-site" href="https://www.reeceog.com" target="_blank" rel="noopener">🌐 See the portfolio anyway</a>`;
   document.getElementById("end-screen").classList.add("visible");
 }
 
